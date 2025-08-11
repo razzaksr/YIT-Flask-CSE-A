@@ -1,0 +1,27 @@
+{%extends "parent.html"%}
+{%block title%}View Customers{%endblock%}
+{%block frames%}
+    <h1>Viewing our customers with BMR</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Weight</th><th>height</th><th>age</th><th>gender</th><th>BMR</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for each in data%}
+                <tr>
+                    <td>{{each.weight|round(1)}}</td><td>{{each.height|round(1)}}</td>
+                    <td>{{each.age}}</td><td>{{each.gender|upper}}</td>
+                    <td>
+                        {%if each.gender == "male"%}
+                            {{10*each.weight+6.25*each.height-5*each.age+5}}/day
+                        {%else%}
+                            {{10*each.weight+6.25*each.height-5*each.age-161}}/day
+                        {%endif%}
+                    </td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}

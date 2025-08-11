@@ -1,0 +1,14 @@
+{%from "inputs.html" import box%}
+{%extends "parent.html"%}
+{%block title%}Calculate BMR{%endblock%}
+{%block frames%}
+    <h1>BMR Calculation</h1>
+    <form action="/findbmr" method="post">
+        {{box("weight","enter the wieght")}}
+        {{box("weight","enter the hieght")}}
+        {{box("weight","enter the age")}}
+        {{box("weight","enter the gender")}}
+        <input type="submit" value="BMR">
+    </form>
+    <h1>Calories required {{calculated}}/ day</h1>
+{%endblock%}
