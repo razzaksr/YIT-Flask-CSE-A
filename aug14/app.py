@@ -1,16 +1,11 @@
 from flask import *
 from forms import VoterForm
-import os
-from werkzeug.utils import *
 
 app = Flask(__name__)
-
 # config for csrf token
 app.config["SECRET_KEY"] = "yitcseaflask"
-
 # inmemory
 applications = []
-
 @app.route("/",methods=["GET","POST"])
 def application():
     voter = VoterForm()
