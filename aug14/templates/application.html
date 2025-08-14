@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Application</title>
+    <style>span{color: red;}</style>
+</head>
+<body>
+    <form method="post" novalidate>
+        <!-- csrf token -->
+        {{form.hidden_tag()}}
+        <div>
+            <p>{{form.fullname.label}}</p>
+            <p>{{form.fullname(size=32)}}</p>
+            <p>
+                {%for error in form.fullname.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{form.age.label}}</p>
+            <p>{{form.age(size=32)}}</p>
+            <p>
+                {%for error in form.age.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{form.email.label}}</p>
+            <p>{{form.email(size=32)}}</p>
+            <p>
+                {%for error in form.email.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{form.aadhaar.label}}</p>
+            <p>{{form.aadhaar(size=32)}}</p>
+            <p>
+                {%for error in form.aadhaar.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{form.gender.label}}</p>
+            <p>{{form.gender(size=32)}}</p>
+            <p>
+                {%for error in form.gender.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{form.constituency.label}}</p>
+            <p>{{form.constituency()}}</p>
+        </div>
+        <div>
+            <p>{{form.declaration.label}}</p>
+            <p>{{form.declaration()}}</p>
+            <p>
+                {%for error in form.declaration.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            {{form.submit()}}
+        </div>
+    </form>
+</body>
+</html>
